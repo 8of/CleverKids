@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		94A708021AAE53D50022FE95 /* LXReorderableCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A708011AAE53D50022FE95 /* LXReorderableCollectionViewFlowLayout.m */; };
+		94A708061AAE55700022FE95 /* CharacterViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A708051AAE55700022FE95 /* CharacterViewCell.m */; };
 		94EE25C01AAE4C9B00BA3D0A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EE25BF1AAE4C9B00BA3D0A /* main.m */; };
 		94EE25C31AAE4C9B00BA3D0A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EE25C21AAE4C9B00BA3D0A /* AppDelegate.m */; };
 		94EE25C61AAE4C9B00BA3D0A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EE25C51AAE4C9B00BA3D0A /* ViewController.m */; };
@@ -27,6 +29,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		94A708001AAE53D50022FE95 /* LXReorderableCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXReorderableCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		94A708011AAE53D50022FE95 /* LXReorderableCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXReorderableCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		94A708041AAE55700022FE95 /* CharacterViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CharacterViewCell.h; path = Views/CharacterViewCell.h; sourceTree = "<group>"; };
+		94A708051AAE55700022FE95 /* CharacterViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CharacterViewCell.m; path = Views/CharacterViewCell.m; sourceTree = "<group>"; };
 		94EE25BA1AAE4C9B00BA3D0A /* CleverKids.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleverKids.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94EE25BE1AAE4C9B00BA3D0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94EE25BF1AAE4C9B00BA3D0A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -60,6 +66,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		94A707FE1AAE53C30022FE95 /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				94A707FF1AAE53D50022FE95 /* LXReorderableCollectionViewFlowLayout */,
+			);
+			name = ThirdParty;
+			sourceTree = "<group>";
+		};
+		94A707FF1AAE53D50022FE95 /* LXReorderableCollectionViewFlowLayout */ = {
+			isa = PBXGroup;
+			children = (
+				94A708001AAE53D50022FE95 /* LXReorderableCollectionViewFlowLayout.h */,
+				94A708011AAE53D50022FE95 /* LXReorderableCollectionViewFlowLayout.m */,
+			);
+			path = LXReorderableCollectionViewFlowLayout;
+			sourceTree = "<group>";
+		};
+		94A708031AAE55530022FE95 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				94A708041AAE55700022FE95 /* CharacterViewCell.h */,
+				94A708051AAE55700022FE95 /* CharacterViewCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		94EE25B11AAE4C9B00BA3D0A = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +113,8 @@
 		94EE25BC1AAE4C9B00BA3D0A /* CleverKids */ = {
 			isa = PBXGroup;
 			children = (
+				94A708031AAE55530022FE95 /* Views */,
+				94A707FE1AAE53C30022FE95 /* ThirdParty */,
 				94EE25C11AAE4C9B00BA3D0A /* AppDelegate.h */,
 				94EE25C21AAE4C9B00BA3D0A /* AppDelegate.m */,
 				94EE25C41AAE4C9B00BA3D0A /* ViewController.h */,
@@ -221,6 +255,8 @@
 			files = (
 				94EE25C61AAE4C9B00BA3D0A /* ViewController.m in Sources */,
 				94EE25C31AAE4C9B00BA3D0A /* AppDelegate.m in Sources */,
+				94A708021AAE53D50022FE95 /* LXReorderableCollectionViewFlowLayout.m in Sources */,
+				94A708061AAE55700022FE95 /* CharacterViewCell.m in Sources */,
 				94EE25C01AAE4C9B00BA3D0A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,6 +382,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CleverKids/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -356,6 +393,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CleverKids/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -414,6 +452,7 @@
 				94EE25DF1AAE4C9B00BA3D0A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		94EE25E01AAE4C9B00BA3D0A /* Build configuration list for PBXNativeTarget "CleverKidsTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +461,7 @@
 				94EE25E21AAE4C9B00BA3D0A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
