@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		94A708021AAE53D50022FE95 /* LXReorderableCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A708011AAE53D50022FE95 /* LXReorderableCollectionViewFlowLayout.m */; };
 		94A708061AAE55700022FE95 /* CharacterViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A708051AAE55700022FE95 /* CharacterViewCell.m */; };
+		94AB0ED91AAF76A800967E66 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 94AB0ED81AAF76A800967E66 /* Default-568h@2x.png */; };
 		94EE25C01AAE4C9B00BA3D0A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EE25BF1AAE4C9B00BA3D0A /* main.m */; };
 		94EE25C31AAE4C9B00BA3D0A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EE25C21AAE4C9B00BA3D0A /* AppDelegate.m */; };
 		94EE25C61AAE4C9B00BA3D0A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EE25C51AAE4C9B00BA3D0A /* ViewController.m */; };
@@ -33,6 +34,7 @@
 		94A708011AAE53D50022FE95 /* LXReorderableCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXReorderableCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		94A708041AAE55700022FE95 /* CharacterViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CharacterViewCell.h; path = Views/CharacterViewCell.h; sourceTree = "<group>"; };
 		94A708051AAE55700022FE95 /* CharacterViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CharacterViewCell.m; path = Views/CharacterViewCell.m; sourceTree = "<group>"; };
+		94AB0ED81AAF76A800967E66 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		94EE25BA1AAE4C9B00BA3D0A /* CleverKids.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleverKids.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94EE25BE1AAE4C9B00BA3D0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94EE25BF1AAE4C9B00BA3D0A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -92,9 +94,19 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		94AB0ED71AAF6DD900967E66 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				94EE25C41AAE4C9B00BA3D0A /* ViewController.h */,
+				94EE25C51AAE4C9B00BA3D0A /* ViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		94EE25B11AAE4C9B00BA3D0A = {
 			isa = PBXGroup;
 			children = (
+				94AB0ED81AAF76A800967E66 /* Default-568h@2x.png */,
 				94EE25BC1AAE4C9B00BA3D0A /* CleverKids */,
 				94EE25D61AAE4C9B00BA3D0A /* CleverKidsTests */,
 				94EE25BB1AAE4C9B00BA3D0A /* Products */,
@@ -113,12 +125,11 @@
 		94EE25BC1AAE4C9B00BA3D0A /* CleverKids */ = {
 			isa = PBXGroup;
 			children = (
-				94A708031AAE55530022FE95 /* Views */,
 				94A707FE1AAE53C30022FE95 /* ThirdParty */,
+				94AB0ED71AAF6DD900967E66 /* Controllers */,
+				94A708031AAE55530022FE95 /* Views */,
 				94EE25C11AAE4C9B00BA3D0A /* AppDelegate.h */,
 				94EE25C21AAE4C9B00BA3D0A /* AppDelegate.m */,
-				94EE25C41AAE4C9B00BA3D0A /* ViewController.h */,
-				94EE25C51AAE4C9B00BA3D0A /* ViewController.m */,
 				94EE25C71AAE4C9B00BA3D0A /* Main.storyboard */,
 				94EE25CA1AAE4C9B00BA3D0A /* Images.xcassets */,
 				94EE25CC1AAE4C9B00BA3D0A /* LaunchScreen.xib */,
@@ -234,6 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				94EE25C91AAE4C9B00BA3D0A /* Main.storyboard in Resources */,
+				94AB0ED91AAF76A800967E66 /* Default-568h@2x.png in Resources */,
 				94EE25CE1AAE4C9B00BA3D0A /* LaunchScreen.xib in Resources */,
 				94EE25CB1AAE4C9B00BA3D0A /* Images.xcassets in Resources */,
 			);

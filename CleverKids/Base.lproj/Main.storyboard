@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
@@ -86,6 +86,12 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="LfW-Jp-Wov"/>
                                 </connections>
                             </collectionView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="РЕШЕНО!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HkI-9Y-Sci">
+                                <rect key="frame" x="20" y="70" width="728" height="38.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -95,10 +101,14 @@
                             <constraint firstItem="6BE-Mv-E4q" firstAttribute="top" secondItem="XGa-B1-3m2" secondAttribute="bottom" constant="50" id="HRc-k5-JVz"/>
                             <constraint firstAttribute="centerX" secondItem="XGa-B1-3m2" secondAttribute="centerX" id="Mrs-0j-dob"/>
                             <constraint firstAttribute="centerX" secondItem="6BE-Mv-E4q" secondAttribute="centerX" id="VuO-j5-eMq"/>
+                            <constraint firstItem="HkI-9Y-Sci" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="ceE-Ol-wCh"/>
+                            <constraint firstAttribute="trailing" secondItem="HkI-9Y-Sci" secondAttribute="trailing" constant="20" id="ehc-zy-t5w"/>
+                            <constraint firstItem="HkI-9Y-Sci" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="wtJ-qA-X2N"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
+                        <outlet property="doneLabel" destination="HkI-9Y-Sci" id="Dkg-hI-SIb"/>
                         <outlet property="lettersCollectionView" destination="6BE-Mv-E4q" id="2zs-dG-kd1"/>
                     </connections>
                 </viewController>

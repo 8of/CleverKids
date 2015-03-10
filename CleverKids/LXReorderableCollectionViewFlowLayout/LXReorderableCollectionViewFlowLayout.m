@@ -27,6 +27,8 @@ typedef NS_ENUM(NSInteger, LXScrollingDirection) {
 static NSString * const kLXScrollingDirectionKey = @"LXScrollingDirection";
 static NSString * const kLXCollectionViewKeyPath = @"collectionView";
 
+static CGFloat const MINIMUM_PRESS_DURATION = 0.005F;
+
 @interface CADisplayLink (LX_userInfo)
 @property (nonatomic, copy) NSDictionary *LX_userInfo;
 @end
@@ -86,6 +88,7 @@ static NSString * const kLXCollectionViewKeyPath = @"collectionView";
 - (void)setupCollectionView {
     _longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self
                                                                                 action:@selector(handleLongPressGesture:)];
+    _longPressGestureRecognizer.minimumPressDuration = MINIMUM_PRESS_DURATION;
     _longPressGestureRecognizer.delegate = self;
     
     // Links the default long press gesture recognizer to the custom long press gesture recognizer we are creating now

@@ -15,7 +15,9 @@
 @property (nonatomic, strong) NSString *originalWord;
 @property (nonatomic, strong) NSString *word;
 @property (nonatomic, strong) NSMutableArray *letters;
+@property (nonatomic, assign) BOOL puzzleSolved;
 @property (weak, nonatomic) IBOutlet UICollectionView *lettersCollectionView;
+@property (weak, nonatomic) IBOutlet UILabel *doneLabel;
 
 @end
 
@@ -23,25 +25,38 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self prepareWord];
 }
 
 - (void)prepareWord {
+    _puzzleSolved = NO;
     /**
      *  Исходное слово, с которым надо будет сравнивать полученное слово при перестановке
      */
-    _originalWord = @"APPLE";
+    _word = @"АБЫРВАЛГ";
+    
     /**
-     *  Тут должно генерироваться слово с неправильным порядком букв
-     *  Для теста просто железно задаём это неправильно слово
+     Разбивка на буквы
+     ТОЛЬКО ДЛЯ ЛАТИНИЦЫ!
+     
+     :returns: получаем массив, где каждый элмент - буква
      */
-    _word = @"PAPEL";
     NSMutableArray *characters = [[NSMutableArray alloc] initWithCapacity:[_word length]];
     for (int i=0; i < [_word length]; i++) {
-        NSString *ichar  = [NSString stringWithFormat:@"%c", [_word characterAtIndex:i]];
+        NSString *ichar  = [NSString stringWithFormat:@"%C", [_word characterAtIndex:i]];
         [characters addObject:ichar];
     }
+    
+    /**
+     *  Расстановка букв в случайном порядке
+     */
+    NSUInteger count = [characters count];
+    if (count > 1) {
+        for (NSUInteger i = count - 1; i > 0; --i) {
+            [characters exchangeObjectAtIndex:i withObjectAtIndex:arc4random_uniform((int32_t)(i + 1))];
+        }
+    }
+    
     _letters = characters;
 }
 /**
@@ -80,8 +95,8 @@
     CharacterViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"characterCell"
                                                                         forIndexPath:indexPath];
     /**
-     *  Просто разбивает слово на символы.
-     *  Работает только для латинских букв.
+     *  Просто выбирает буквы из ранее созданного массива
+     *  Работает ТОЛЬКО ДЛЯ ЛАТИНСКИХ БУКВ.
      *  Потому что для Unicode-символов одна буква состоит НЕ из одного символа.
      */
     NSString *letter = _letters[indexPath.row];
@@ -99,6 +114,19 @@
     NSString *letter = _letters[fromIndexPath.row];
     [_letters removeObjectAtIndex:fromIndexPath.row];
     [_letters insertObject:letter atIndex:toIndexPath.row];
+    
+    NSString *wordToCompare = [_letters componentsJoinedByString:@""];
+    
+    /**
+     *  Проверяем идентичны ли слова
+     */
+    BOOL isWordtheSame = [wordToCompare isEqualToString:_word];
+    
+    if (isWordtheSame) {
+        _puzzleSolved = YES;
+        _doneLabel.hidden = NO;
+    }
+    
     /**
      *  Здесь надо проверять полученное слово на предмет соответствия оригинальному
      */
@@ -107,19 +135,24 @@
 - (BOOL)collectionView:(UICollectionView *)collectionView
 canMoveItemAtIndexPath:(NSIndexPath *)indexPath {
     /**
-     *  Сейчас всегда ДА.
-     *  Нужно переписывать на НЕТ, если слово уже собрано и проверено.
+     *  Если задача решена - больше позволять ничего трогать.
      */
+    if (_puzzleSolved) {
+        return NO;
+    }
     return YES;
 }
 
 - (BOOL)collectionView:(UICollectionView *)collectionView
        itemAtIndexPath:(NSIndexPath *)fromIndexPath
     canMoveToIndexPath:(NSIndexPath *)toIndexPath {
+    
     /**
-     *  Сейчас всегда ДА.
-     *  Нужно переписывать на НЕТ, если слово уже собрано и проверено.
+     *  Если задача решена - больше позволять ничего трогать.
      */
+    if (_puzzleSolved) {
+        return NO;
+    }
     return YES;
 }
 
