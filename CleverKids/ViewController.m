@@ -33,12 +33,10 @@
     /**
      *  Исходное слово, с которым надо будет сравнивать полученное слово при перестановке
      */
-    _word = @"АБЫРВАЛГ";
+    _word = @"ЯБЛОКО";
     
     /**
      Разбивка на буквы
-     ТОЛЬКО ДЛЯ ЛАТИНИЦЫ!
-     
      :returns: получаем массив, где каждый элмент - буква
      */
     NSMutableArray *characters = [[NSMutableArray alloc] initWithCapacity:[_word length]];
@@ -95,9 +93,7 @@
     CharacterViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"characterCell"
                                                                         forIndexPath:indexPath];
     /**
-     *  Просто выбирает буквы из ранее созданного массива
-     *  Работает ТОЛЬКО ДЛЯ ЛАТИНСКИХ БУКВ.
-     *  Потому что для Unicode-символов одна буква состоит НЕ из одного символа.
+     *  Выборка букв из ранее созданного массива
      */
     NSString *letter = _letters[indexPath.row];
     [cell prepareCellWithCharacter:letter];
