@@ -12,6 +12,7 @@
 
 @interface ViewController () <LXReorderableCollectionViewDataSource, LXReorderableCollectionViewDelegateFlowLayout>
 
+@property (nonatomic, strong) NSString *originalWord;
 @property (nonatomic, strong) NSString *word;
 @property (nonatomic, strong) NSMutableArray *letters;
 @property (weak, nonatomic) IBOutlet UICollectionView *lettersCollectionView;
@@ -27,7 +28,15 @@
 }
 
 - (void)prepareWord {
-    _word = @"Тест";
+    /**
+     *  Исходное слово, с которым надо будет сравнивать полученное слово при перестановке
+     */
+    _originalWord = @"APPLE";
+    /**
+     *  Тут должно генерироваться слово с неправильным порядком букв
+     *  Для теста просто железно задаём это неправильно слово
+     */
+    _word = @"PAPEL";
     NSMutableArray *characters = [[NSMutableArray alloc] initWithCapacity:[_word length]];
     for (int i=0; i < [_word length]; i++) {
         NSString *ichar  = [NSString stringWithFormat:@"%c", [_word characterAtIndex:i]];
@@ -35,10 +44,16 @@
     }
     _letters = characters;
 }
-
+/**
+ *  Просчёт оступов
+ *  Нужно для того, чтобы слово всегда было по центру экрана
+ */
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView
                         layout:(UICollectionViewLayout*)collectionViewLayout
         insetForSectionAtIndex:(NSInteger)section {
+    /**
+     *  Ширина квадрата-контейнера для буквы
+     */
     NSInteger letterViewWidth = 100;
     NSInteger numberOfCells = [_letters count];
     NSInteger edgeInsets = (self.view.frame.size.width - (numberOfCells * letterViewWidth)) / (numberOfCells - 1);
@@ -62,8 +77,13 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    CharacterViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"characterCell" forIndexPath:indexPath];
-    
+    CharacterViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"characterCell"
+                                                                        forIndexPath:indexPath];
+    /**
+     *  Просто разбивает слово на символы.
+     *  Работает только для латинских букв.
+     *  Потому что для Unicode-символов одна буква состоит НЕ из одного символа.
+     */
     NSString *letter = _letters[indexPath.row];
     [cell prepareCellWithCharacter:letter];
 
@@ -79,16 +99,27 @@
     NSString *letter = _letters[fromIndexPath.row];
     [_letters removeObjectAtIndex:fromIndexPath.row];
     [_letters insertObject:letter atIndex:toIndexPath.row];
+    /**
+     *  Здесь надо проверять полученное слово на предмет соответствия оригинальному
+     */
 }
 
 - (BOOL)collectionView:(UICollectionView *)collectionView
 canMoveItemAtIndexPath:(NSIndexPath *)indexPath {
+    /**
+     *  Сейчас всегда ДА.
+     *  Нужно переписывать на НЕТ, если слово уже собрано и проверено.
+     */
     return YES;
 }
 
 - (BOOL)collectionView:(UICollectionView *)collectionView
        itemAtIndexPath:(NSIndexPath *)fromIndexPath
     canMoveToIndexPath:(NSIndexPath *)toIndexPath {
+    /**
+     *  Сейчас всегда ДА.
+     *  Нужно переписывать на НЕТ, если слово уже собрано и проверено.
+     */
     return YES;
 }
 

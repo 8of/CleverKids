@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
@@ -19,10 +19,18 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XGa-B1-3m2">
                                 <rect key="frame" x="184" y="312" width="400" height="400"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Apple" translatesAutoresizingMaskIntoConstraints="NO" id="Mub-30-HSH">
+                                        <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
+                                    </imageView>
+                                </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Mub-30-HSH" secondAttribute="bottom" id="UlM-pg-QSz"/>
+                                    <constraint firstAttribute="trailing" secondItem="Mub-30-HSH" secondAttribute="trailing" id="gy9-5z-dYs"/>
+                                    <constraint firstItem="Mub-30-HSH" firstAttribute="leading" secondItem="XGa-B1-3m2" secondAttribute="leading" id="lx5-aL-J7W"/>
                                     <constraint firstAttribute="height" constant="400" id="niC-FL-TJw"/>
                                     <constraint firstAttribute="width" constant="400" id="u3x-0r-lUl"/>
+                                    <constraint firstItem="Mub-30-HSH" firstAttribute="top" secondItem="XGa-B1-3m2" secondAttribute="top" id="uRc-WV-sEv"/>
                                 </constraints>
                             </view>
                             <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6BE-Mv-E4q">
@@ -54,7 +62,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.52897919380000002" green="0.88709649020000003" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="Lzd-1A-Qgm" secondAttribute="trailing" id="B6e-Xa-qKj"/>
                                             <constraint firstAttribute="centerX" secondItem="Lzd-1A-Qgm" secondAttribute="centerX" id="Ej0-AC-vWU"/>
@@ -98,4 +106,7 @@
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="Apple" width="400" height="400"/>
+    </resources>
 </document>
